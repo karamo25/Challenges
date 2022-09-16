@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+
+namespace Challenge
+{
+    class Program
+    {
+
+      //  static int MaxProfit(int[] prices)
+
+        static void Main(string[] args)
+        {
+            string text = "#CD5C58C";
+
+            Console.WriteLine(isHex(text));
+
+        }
+
+        static bool isHex(string text)
+        {
+            bool hex = false;
+
+            string hexString = text.Substring(1, 6);
+            int counter = 0;
+            foreach(char ch in text)
+            {
+                if (char.IsLetterOrDigit(ch))
+                    hex = true;
+                else
+                    hex = false;
+
+                if (counter != 6)
+                    hex = false;
+
+                counter++;
+            }
+
+            if (text.IndexOf("#") != 0)
+                hex = false;
+
+            return hex;
+        }
+
+     }
+  }
