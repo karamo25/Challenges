@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Challenge
+{
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            
+            
+            // A program that accepts sets of three numbers and prints
+            // the second-maxumum number of each set
+            // Input first line N is the number of triplets
+            // The following N line are intergers space separated
+            // Constraint: 1 < N < 6 inclusive
+            //Problem Statement
+            //Write a program that accepts sets of three numbers and prints the second - maximum number among the three.
+
+            Console.Write("N: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            while (n < 1 || n > 6)
+            {
+                Console.Write("N: ");
+                n = Convert.ToInt32(Console.ReadLine());
+            }
+            List<int> res = new List<int>();
+
+            string set;
+            while (n > 0)
+            {
+
+                set = Console.ReadLine();
+
+                string[] set2 = set.Split(" ");
+                List<int> list = new List<int>();
+                foreach (string s in set2)
+                {
+                    int num = Convert.ToInt32(s);
+                    if (list.Contains(num))
+                    {
+                        Console.WriteLine("List Already Contains: " + num);
+                    }
+                    if (num < 1 || num > 10000)
+                    {
+                        Console.WriteLine("Number must be between 1 and 10000");
+                    }
+                    else
+                    {
+                        list.Add(num);
+
+                    }
+
+                }
+                list.Sort();
+                res.Add(list[1]);
+                n--;
+
+            }
+            Console.WriteLine("Sample Output");
+            foreach (int r in res)
+            {
+                Console.WriteLine(r);
+            }
+        
+            
+            
+        }
+
+    }
+  }
