@@ -1,0 +1,47 @@
+using System;
+
+namespace Challenge
+{ 
+  class Program
+  {
+    static void Main()
+    {
+    
+     // Given an alphanumeric string made up of digits and lower case Latin characters only, find the sum of all the digit characters in the string.
+
+            List<int> res = new List<int>();
+            Console.Write("T: ");
+            int t = Convert.ToInt32(Console.ReadLine());
+            while(t < 1 || t > 1000)
+            {
+                Console.WriteLine("Number of Test cases must be between 1 and 1000");
+                t = Convert.ToInt32(Console.ReadLine());
+            }
+
+            while(t > 0)
+            {
+                
+                string s = Console.ReadLine();
+                List<int> list = new List<int>();
+                foreach (char ch in s)
+                {
+                    char foo = ch;
+                    if (char.IsDigit(foo))
+                    {
+                        int num = foo - '0';
+                        list.Add(num);
+                    }
+                }
+                res.Add(list.Sum());
+                
+                t--;
+            }
+            foreach(int l in res)
+            {
+                Console.WriteLine(l);
+            }
+
+      
+    }
+  }
+}
